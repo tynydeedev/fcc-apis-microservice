@@ -31,27 +31,27 @@ app.enable('trust proxy');
 
 // Pages
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/00_index.html');
+	res.sendFile(__dirname + '/views/00_index.html');
 });
 
 app.get('/timestamp', (req, res) => {
-  res.sendFile(__dirname + '/views/01_time-stamp.html');
+	res.sendFile(__dirname + '/views/01_time-stamp.html');
 });
 
 app.get('/header-parser', (req, res) => {
-  res.sendFile(__dirname + '/views/02_header-parser.html');
+	res.sendFile(__dirname + '/views/02_header-parser.html');
 });
 
 app.get('/shortener', (req, res) => {
-  res.sendFile(__dirname + '/views/03_url-shortener.html');
+	res.sendFile(__dirname + '/views/03_url-shortener.html');
 })
 
 app.get('/exercise', (req, res) => {
-  res.sendFile(__dirname + '/views/04_exercise-tracker.html');
+	res.sendFile(__dirname + '/views/04_exercise-tracker.html');
 })
 
 app.get('/file-data', (req, res) => {
-  res.sendFile(__dirname + '/views/05_file-metadata.html');
+	res.sendFile(__dirname + '/views/05_file-metadata.html');
 })
 
 // Router
@@ -63,5 +63,5 @@ app.use('/file-data/api', fileMetadata);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+	console.log('Your app is listening on port ' + listener.address().port);
 });
