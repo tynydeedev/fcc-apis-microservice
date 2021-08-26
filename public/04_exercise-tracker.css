@@ -1,0 +1,70 @@
+:root {
+  --ocean: #55e6ff;
+  --light-ocean: #91e5ff;
+  --orange: #ff4d00;
+  --light-grey: #adadad;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  height: 2.2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn {
+  border: 1px solid var(--orange);
+  background: var(--ocean);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 250ms ease-in;
+}
+
+.btn:hover {
+  background: var(--orange);
+  border: 1px solid var(--light-ocean);
+  color: white;
+}
+
+.btn:active {
+  background: white;
+  color: black;
+  border: 1px solid var(--orange);
+  transition: 0ms;
+}
+
+.note {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.note code {
+  font-size: 0.7rem;
+}
+
+.normal {
+  margin: 0;
+  padding: 0;
+}

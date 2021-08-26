@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/00_navbar.css" type="text/css">
+  <link rel="stylesheet" href="/01_content.css" type="text/css">
+  <link rel="stylesheet" href="/04_exercise-tracker.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8eba8d2358.js" crossorigin="anonymous"></script>
+  <title>Exercise Tracker</title>
+</head>
+
+<body>
+  <nav id="nav-bar" class="nav-bar">
+    <div id="drop-down" class="drop-down"><i class="fas fa-bars"></i></div>
+    <ul id="nav" class="nav">
+      <li><a class="nav-link" href="/">Home</a></li>
+      <li><a class="nav-link" href="/timestamp">Timestamp</a></li>
+      <li><a class="nav-link" href="/header-parser">Request Header Parser</a></li>
+      <li><a class="nav-link" href="/shortener">URL Shortener</a></li>
+      <li><a class="nav-link" href="/exercise">Exercise Tracker</a></li>
+      <li><a class="nav-link" href="/file-data">File Metadata</a></li>
+    </ul>
+  </nav>
+  <div id="content" class="content">
+    <div id="header" class="header">
+      <h1 class="title">Exercise Tracker</h1>
+      <hr>
+    </div>
+    <div id="usage" class="usage">
+      <form action="/exercise/api/users" method="POST">
+        <p class="bigger">Create New User</p>
+        <input type="text" name="username" placeholder="username" required>
+        <input type="submit" class="btn" value="Create">
+        <p class="note">Or send a POST request to <code>[url]/api/users</code></p>
+      </form>
+      <form id="add-form" method="POST">
+        <p class="bigger">Add exercises</p>
+        <input type="text" name="id" placeholder="user ID" id="uid" required>
+        <input type="text" name="description" placeholder="description" required>
+        <input type="number" name="duration" placeholder="duration (mins)" min="1" required>
+        <input type="date" name="date" class="date-input">
+        <input type="submit" class="btn" value="Add">
+        <p class="note">Or send a POST request to <code>[url]/api/users/:id/exercises</code></p>
+      </form>
+    </div>
+    <div id="logs" class="logs">
+      <p class="bigger">To get user's exercise log:</p>
+      <p class="normal">Send a <strong>GET</strong> request to <code>[url]/api/users/:id/logs</code></p>
+      <p class="normal">Optional queries: <code>?[from][&to][&limit]</code></p>
+      <p class="note"><strong>from</strong>, <strong>to</strong>: date yyyy-mm-dd; <strong>limit</strong>: number</p>
+    </div>
+  </div>
+  <script src="00_navbar.js" type="text/javascript"></script>
+  <script>
+    const addForm = document.getElementById('add-form');
+
+    document.addEventListener('submit', () => {
+      const uid = document.getElementById('uid').value;
+      addForm.action = `/exercise/api/users/${uid}/exercises`;
+      addForm.submit();
+    })
+  </script>
+</body>
+
+</html>
